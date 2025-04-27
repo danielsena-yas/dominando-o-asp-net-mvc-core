@@ -1,25 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MinhaDemoMVC.Models;
 
 namespace MinhaDemoMVC.Controllers
 {
+    [Route("")]
+    [Route("gestao-clientes")]
     public class HomeController : Controller
     {
-        public IActionResult Index(string id, string categoria)
+        [Route("")]
+        [Route("pagina-inicial")]
+        [Route("pagina-inicial/{id:int}/{categoria:guid}")]
+        public IActionResult Index(string id, Guid categoria)
         {
             return View();
         }
 
+        [Route("privacidade")]
+        [Route("politica-de-privacidade")]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [Route("erro-encontrado")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
